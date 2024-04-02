@@ -1,0 +1,58 @@
+@startuml
+
+class models.Animales{
+    id:int
+    nombre:string
+}
+class models.Especies{
+    id:int
+    nombre:string
+}
+class models.Recintos{
+    id:int
+    nombre:string
+    cantidad:string
+    deseño:string
+}
+class models.Usuarios{
+    id:int
+    nombre:string
+    apellido:string
+    clave:string
+}
+class models.Cuidadores{
+    id:int
+    nombre:string
+    apellido:string
+    especialidad:string
+}
+class models.Actividades{
+    id:int
+    horario:string
+}
+
+class controllers.Animales{
+    resource()
+}
+class controllers.Especies{
+    resource()
+}
+class controllers.Recintos{
+    resource()
+}
+class controllers.Cuidadores{
+    resource()
+}
+class controllers.Actividades{
+    resource()
+}
+class controllers.Usuarios{
+    resource()
+}
+
+models.Animales "1" -- "1" models.Especies : es de
+models.Recintos "1" -- "*" models.Animales : contiene
+models.Cuidadores "1" -- "*"  models.Animales : cuida
+models.Animales "*" -- "*" models.Actividades : participa
+
+@enduml
